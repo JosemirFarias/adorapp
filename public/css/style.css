@@ -1,23 +1,53 @@
- body,
- html {
-     height: 100%;
-     margin: 0;
- }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
- .login-container {
-     min-height: 100vh;
-     display: flex;
- }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #838282;
+}
 
- body {
-     background: linear-gradient(135deg, #ffffff, #2f8f8a);
- }
+/*------------ Login container ------------*/
 
- .login-form {
-     max-width: 400px;
- }
+.box-area {
+    width: 930px;
+}
 
- .password-toggle {
-     cursor: pointer;
-     user-select: none;
- }
+/*------------ Right box ------------*/
+
+.right-box {
+    padding: 40px 30px 40px 40px;
+}
+
+/*------------ Custom Placeholder ------------*/
+
+::placeholder {
+    font-size: 16px;
+}
+
+.rounded-4 {
+    border-radius: 20px;
+}
+
+.rounded-5 {
+    border-radius: 30px;
+}
+
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 768px) {
+
+    .box-area {
+        margin: 0 10px;
+
+    }
+
+    .left-box {
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .right-box {
+        padding: 20px;
+    }
+
+}

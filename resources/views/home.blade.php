@@ -19,52 +19,81 @@
 </head>
 
 <body>
-    <div class="container-fluid login-container d-flex align-items-center">
-        <div class="row flex-fill">
 
-            <!-- Coluna do formulário -->
-            <div class="col-md-6 d-flex align-items-center justify-content-center">
-                <div class="login-form w-100 px-4">
-                    <h2 class="mb-4">Faça seu login</h2>
-                    <form>
+    <!------------------- Main Container ------------------->
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
 
-                        <!-- Campo Email -->
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                <input type="email" class="form-control" id="email" placeholder="Digite seu email"
-                                    required>
-                            </div>
+        <!--------- Login Container -------------->
+        <div class="row border rounded-5 p-3 bg-white shadow box-area">
+
+            <!------------- Left Box -------------->
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center 
+            flex-column left-box"
+                style="background: linear-gradient(135deg, #ffffff, #163ad6);">
+                <div class="featured-image mb-3">
+                    <img src="{{ asset('img/base.png') }}" class="img-fluid" style="width: 250px">
+                </div>
+                <p class="fs-2" style="font-family: 'Poppins',sans-serif; font-weight: 600; color: rgb(33, 37, 41)">
+                    Bem
+                    Vindo</p>
+                <small class="text-wrap text-center"
+                    style="width: 17rem;font-family: 'Poppins',sans-serif; color: rgb(33, 37, 41)">Cadastre-se e faça
+                    parte de
+                    experiências incríveis</small>
+            </div>
+
+            <!------------- Right Box -------------->
+            <div class="col-md-6 right-box">
+                <div class="row align-items-center">
+                    <div class="header-text mb-4">
+                        <h2>Faça seu login</h2>
+                    </div>
+
+                    <!------------------ Email -------------------->
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6"
+                            placeholder="Digite seu email">
+                    </div>
+
+                    <!------------- Password -------------->
+                    <div class="input-group mb-1">
+                        <input type="password" id="senha"
+                            class="form-control form-control
+                            lg lg-light fs-6"
+                            placeholder="Digite sua senha">
+                        <span class="input-group-text password-toggle" id="toggleSenha"><i class="bi bi-eye"></i></span>
+                    </div>
+
+                    <!----------------- Checkbox ---------------->
+                    <div class="input-group mb-5 d-flex justify-content-between">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="formCheck">
+                            <label for="formCheck" class="form-check-label text-secondary"><small>Lembrar de
+                                    mim</small></label>
                         </div>
-
-                        <!-- Campo Senha -->
-                        <div class="mb-3">
-                            <label for="senha" class="form-label">Senha</label>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                <input type="password" class="form-control" id="senha"
-                                    placeholder="Digite sua senha" required>
-                                <span class="input-group-text password-toggle" id="toggleSenha"><i
-                                        class="bi bi-eye"></i></span>
-                            </div>
+                        <div class="forgot">
+                            <small><a href="#">Esqueceu sua senha?</a></small>
                         </div>
+                    </div>
 
-                        <!-- Checkbox -->
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="lembrar">
-                            <label class="form-check-label" for="lembrar">Lembrar de mim</label>
-                        </div>
+                    <!-------- Button --------->
+                    <div class="input-group mb-3">
+                        <button class="btn btn-lg btn-primary w-100 fs-6">Entrar</button>
+                    </div>
 
-                        <!-- Botão -->
-                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
-                    </form>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-lg btn-light w-100 fs-6"><img src="img/google.png" style="width:20px"
+                                class="me-2"><small>Entrar com o Google</small></button>
+                    </div>
+
+                    <div class="row">
+                        <small>Não tem conta? <a href="#">Cadastre-se</a></small>
+                    </div>
                 </div>
             </div>
 
             <!-- Coluna da imagem de fundo (gradiente) -->
             <div class="col-md-6 d-none d-md-flex align-items justify-content-center">
-                <img src="{{ asset('img/base.png') }}" alt="Login Lateral" class="img-fluid">
             </div>
         </div>
     </div>
