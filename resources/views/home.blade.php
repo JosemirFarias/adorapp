@@ -50,18 +50,24 @@
                     </div>
 
                     <!------------------ Email -------------------->
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control form-control-lg bg-light fs-6"
-                            placeholder="Digite seu email">
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control form-control-lg bg-light fs-6" id="inputEmail"
+                            name="email" placeholder="Digite seu email">
                     </div>
 
+
                     <!------------- Password -------------->
-                    <div class="input-group mb-1">
-                        <input type="password" id="senha"
-                            class="form-control form-control
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <div class="input-group">
+                            <input type="password" id="senha"
+                                class="form-control form-control
                             lg lg-light fs-6"
-                            placeholder="Digite sua senha">
-                        <span class="input-group-text password-toggle" id="toggleSenha"><i class="bi bi-eye"></i></span>
+                                placeholder="Digite sua senha">
+                            <span class="input-group-text password-toggle" id="toggleSenha"><i
+                                    class="bi bi-eye"></i></span>
+                        </div>
                     </div>
 
                     <!----------------- Checkbox ---------------->
@@ -87,7 +93,7 @@
                     </div>
 
                     <div class="row">
-                        <small>Não tem conta? <a href="#">Cadastre-se</a></small>
+                        <small>Não tem conta? <a href="{{ route('user.create') }}">Cadastre-se</a></small>
                     </div>
                 </div>
             </div>
