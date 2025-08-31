@@ -49,52 +49,58 @@
                         <h2>Faça seu login</h2>
                     </div>
 
-                    <!------------------ Email -------------------->
-                    <div class="mb-3">
-                        <label for="inputEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control form-control-lg bg-light fs-6" id="inputEmail"
-                            name="email" placeholder="Digite seu email">
-                    </div>
+                    <form action="{{ route('login') }}" method="POST" class="row">
+                        @csrf
+
+                        <!------------------ Email -------------------->
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-lg bg-light fs-6" id="inputEmail"
+                                name="email" placeholder="Digite seu email">
+                        </div>
 
 
-                    <!------------- Password -------------->
-                    <div class="mb-3">
-                        <label for="senha" class="form-label">Senha</label>
-                        <div class="input-group">
-                            <input type="password" id="senha"
-                                class="form-control form-control
+                        <!------------- Password -------------->
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            <div class="input-group">
+                                <input type="password" id="senha" name="password"
+                                    class="form-control form-control
                             lg lg-light fs-6"
-                                placeholder="Digite sua senha">
-                            <span class="input-group-text password-toggle" id="toggleSenha"><i
-                                    class="bi bi-eye"></i></span>
+                                    placeholder="Digite sua senha">
+                                <span class="input-group-text password-toggle" id="toggleSenha"><i
+                                        class="bi bi-eye"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!----------------- Checkbox ---------------->
-                    <div class="input-group mb-5 d-flex justify-content-between">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="formCheck">
-                            <label for="formCheck" class="form-check-label text-secondary"><small>Lembrar de
-                                    mim</small></label>
+                        <!----------------- Checkbox ---------------->
+                        <div class="input-group mb-5 d-flex justify-content-between">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="formCheck">
+                                <label for="formCheck" class="form-check-label text-secondary"><small>Lembrar de
+                                        mim</small></label>
+                            </div>
+                            <div class="forgot">
+                                <small><a href="#">Esqueceu sua senha?</a></small>
+                            </div>
                         </div>
-                        <div class="forgot">
-                            <small><a href="#">Esqueceu sua senha?</a></small>
+
+                        <!-------- Button --------->
+                        <div class="input-group mb-3">
+                            <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Entrar</button>
                         </div>
-                    </div>
 
-                    <!-------- Button --------->
-                    <div class="input-group mb-3">
-                        <button class="btn btn-lg btn-primary w-100 fs-6">Entrar</button>
-                    </div>
+                        <div class="input-group mb-3">
+                            <button type="button" class="btn btn-lg btn-light w-100 fs-6"><img src="img/google.png"
+                                    style="width:20px" class="me-2"><small>Entrar com o Google</small>
+                            </button>
+                        </div>
 
-                    <div class="input-group mb-3">
-                        <button class="btn btn-lg btn-light w-100 fs-6"><img src="img/google.png" style="width:20px"
-                                class="me-2"><small>Entrar com o Google</small></button>
-                    </div>
-
-                    <div class="row">
-                        <small>Não tem conta? <a href="{{ route('user.create') }}">Cadastre-se</a></small>
-                    </div>
+                        <div class="row">
+                            <small>Não tem conta? <a href="{{ route('user.create') }}">Cadastre-se</a></small>
+                        </div>
+                    </form>
                 </div>
             </div>
 

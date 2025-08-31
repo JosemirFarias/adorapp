@@ -24,8 +24,10 @@
 
         <!--------- Login Container -------------->
         <div class="row border rounded-5 p-3 bg-white shadow box-area">
-            <form class="row g-3">
-                <h1>Formulário</h1>
+            <h1>Formulário</h1>
+
+            <form action="{{ route('user.store') }}" method="POST" class="row g-3">
+                @csrf
 
                 <!------------- Name ------------->
                 <div class="col-12">
@@ -79,7 +81,7 @@
 
             </form>
 
-            <a href="{{ route('home.index') }}">Home</a>
+            <a href="{{ route('login.form') }}">Home</a>
         </div>
     </div>
 
