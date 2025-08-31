@@ -59,31 +59,85 @@
                     </div>
                 </div>
 
-                <!----------- Select 1 ----------->
+                <!----------- Select Function ----------->
                 <div class="col-md-6">
                     <label for="function" class="form-label">Função</label>
                     <select class="form-select" id="function" name="function">
-                        <option selected>...</option>
-                        <option value="1">Membro</option>
-                        <option value="2">Lider</option>
+                        <option value="">-- Escolha --</option>
+                        <option value="member">Membro</option>
+                        <option value="leader">Lider</option>
                     </select>
                 </div>
 
-                <!----------- Select 2 ----------->
+                <!----------- Select Occupation ----------->
                 <div class="col-md-6">
-                    <label for="occupation" class="form-label">Ocupação</label>
-                    <select class="form-select" id="occupation" name="occupation">
-                        <option selected>...</option>
-                        <option value="1">Vocalista</option>
-                        <option value="2">Instrumentista</option>
+                    <label for="role" class="form-label">Qual o seu Papel?</label>
+                    <select class="form-select" id="role" name="role">
+                        <option value="">-- Escolha --</option>
+                        <option value="vocalist">Vocalista</option>
+                        <option value="instrumentist">Instrumentista</option>
+                        <option value="media">Mídia</option>
                     </select>
                 </div>
+
+                <div id="instruments-container" class="mb-3" style="display: none;">
+                    <label for="form-label">Selecione os instrumentos</label><br>
+                    <div class="form-check">
+                        <input type="form-check-input" type="checkbox" name="instruments[]" value="guitar"
+                            id="guitar">
+                        <label for="form-check-label" for="guitar">Guitarra</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="form-check-input" type="checkbox" name="instruments[]" value="acoustic_guitar"
+                            id="acoustic_guitar">
+                        <label for="form-check-label" for="acoustic_guitar">Violão</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="form-check-input" type="checkbox" name="instruments[]" value="bass"
+                            id="bass">
+                        <label for="form-check-label" for="bass">Contra Baixo</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="form-check-input" type="checkbox" name="instruments[]" value="keyboard"
+                            id="keyboard">
+                        <label for="form-check-label" for="keyboard">Teclado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="form-check-input" type="checkbox" name="instruments[]" value="drums"
+                            id="drums">
+                        <label for="form-check-label" for="drums">Bateria</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="form-check-input" type="checkbox" name="instruments[]" value="percussion"
+                            id="percussion">
+                        <label for="form-check-label" for="percussion">Percução</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Salvar</button>
+
+                <a href="{{ route('login.form') }}">Voltar</a>
 
             </form>
-
-            <a href="{{ route('login.form') }}">Home</a>
         </div>
     </div>
+
+    <!--------- Script para mostrar e ocultar os instrumentos--------->
+    <script>
+        const roleSelect = document.getElementById('role');
+        const instrumentsContainer = document.getElementById('instruments-container');
+
+        roleSelect.addEventListener('change', function() {
+            if (this.value === 'instrumentist') {
+                instrumentsContainer.style.display = 'block';
+            } else {
+                instrumentsContainer.style.display = 'none';
+                // Limpar checkboxes quando o usuário muda para vocalista
+                const checkboxes = instrumentsContainer.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(cb => cb.checked = false);
+            }
+        });
+    </script>
 
     <!-- Script mostrar/ocultar senha -->
     <script>

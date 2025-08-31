@@ -21,7 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'date_birth',
+        'function',
+        'role'
     ];
+
+    protected $casts = ['papel' => 'array',];
 
     /**
      * The attributes that should be hidden for serialization.
