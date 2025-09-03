@@ -19,35 +19,41 @@
 
 <body>
 
-    <!------------------- Main Container ------------------->
+    <!-- Main Container -->
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
 
-        <!--------- Login Container -------------->
+        <!-- Login Container -->
         <div class="row border rounded-5 p-3 bg-white shadow box-area">
             <h1>Formulário</h1>
 
             <form action="{{ route('user.store') }}" method="POST" class="row g-3">
                 @csrf
 
-                <!------------- Name ------------->
+                <!-- Name -->
                 <div class="col-12">
                     <label for="name" class="form-label">Nome Completo</label>
                     <input type="text" class="form-control" id="name">
                 </div>
 
-                <!----------- Email ---------->
+                <!-- Telephone -->
                 <div class="col-md-6">
-                    <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail">
+                    <label for="inputTelephone" class="form-label">Telefone</label>
+                    <input type="telephone" class="form-control" id="inputTelephone">
                 </div>
 
-                <!------------- Birth ------------->
+                <!-- Birth -->
                 <div class="col-md-6">
                     <label for="birthdate" class="form-label">Data de Nascimento</label>
                     <input type="date" class="form-control" id="birthdate" name="birthdate">
                 </div>
 
-                <!------------ Password ------------>
+                <!-- Email -->
+                <div class="col-md-6">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail">
+                </div>
+
+                <!-- Password -->
                 <div class="col-md-6">
                     <label for="inputPassword" class="form-label">Crie uma Senha</label>
                     <div class="input-group">
@@ -59,7 +65,7 @@
                     </div>
                 </div>
 
-                <!----------- Select Function ----------->
+                <!-- Select Function -->
                 <div class="col-md-6">
                     <label for="function" class="form-label">Função</label>
                     <select class="form-select" id="function" name="function">
@@ -69,7 +75,7 @@
                     </select>
                 </div>
 
-                <!----------- Select Occupation ----------->
+                <!-- Select Occupation -->
                 <div class="col-md-6">
                     <label for="role" class="form-label">Qual o seu Papel?</label>
                     <select class="form-select" id="role" name="role">
@@ -83,34 +89,34 @@
                 <div id="instruments-container" class="mb-3" style="display: none;">
                     <label for="form-label">Selecione os instrumentos</label><br>
                     <div class="form-check">
-                        <input type="form-check-input" type="checkbox" name="instruments[]" value="guitar"
+                        <input class="form-check-input" type="checkbox" name="instruments[]" value="guitar"
                             id="guitar">
-                        <label for="form-check-label" for="guitar">Guitarra</label>
+                        <label class="form-check-label" for="guitar">Guitarra</label>
                     </div>
                     <div class="form-check">
-                        <input type="form-check-input" type="checkbox" name="instruments[]" value="acoustic_guitar"
+                        <input class="form-check-input" type="checkbox" name="instruments[]" value="acoustic_guitar"
                             id="acoustic_guitar">
-                        <label for="form-check-label" for="acoustic_guitar">Violão</label>
+                        <label class="form-check-label" for="acoustic_guitar">Violão</label>
                     </div>
                     <div class="form-check">
-                        <input type="form-check-input" type="checkbox" name="instruments[]" value="bass"
+                        <input class="form-check-input" type="checkbox" name="instruments[]" value="bass"
                             id="bass">
-                        <label for="form-check-label" for="bass">Contra Baixo</label>
+                        <label class="form-check-label" for="bass">Contra Baixo</label>
                     </div>
                     <div class="form-check">
-                        <input type="form-check-input" type="checkbox" name="instruments[]" value="keyboard"
+                        <input class="form-check-input" type="checkbox" name="instruments[]" value="keyboard"
                             id="keyboard">
-                        <label for="form-check-label" for="keyboard">Teclado</label>
+                        <label class="form-check-label" for="keyboard">Teclado</label>
                     </div>
                     <div class="form-check">
-                        <input type="form-check-input" type="checkbox" name="instruments[]" value="drums"
+                        <input class="form-check-input" type="checkbox" name="instruments[]" value="drums"
                             id="drums">
-                        <label for="form-check-label" for="drums">Bateria</label>
+                        <label class="form-check-label" for="drums">Bateria</label>
                     </div>
                     <div class="form-check">
-                        <input type="form-check-input" type="checkbox" name="instruments[]" value="percussion"
+                        <input class="form-check-input" type="checkbox" name="instruments[]" value="percussion"
                             id="percussion">
-                        <label for="form-check-label" for="percussion">Percução</label>
+                        <label class="form-check-label" for="percussion">Percução</label>
                     </div>
                 </div>
 
@@ -122,7 +128,7 @@
         </div>
     </div>
 
-    <!--------- Script para mostrar e ocultar os instrumentos--------->
+    <!-- Script para mostrar e ocultar os instrumentos -->
     <script>
         const roleSelect = document.getElementById('role');
         const instrumentsContainer = document.getElementById('instruments-container');
@@ -152,6 +158,17 @@
                 senhaInput.type = 'password';
                 toggleSenha.innerHTML = '<i class="bi bi-eye"></i>';
             }
+        });
+    </script>
+
+    <!-- jQuery e jQuery Mask -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <!-- Máscara de telefone -->
+    <script>
+        $(document).ready(function() {
+            $('#inputTelephone').mask('(00) 00000-0000');
         });
     </script>
 

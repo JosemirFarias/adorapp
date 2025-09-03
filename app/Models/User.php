@@ -19,14 +19,22 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'telephone',
+        'birth_date',
         'email',
         'password',
-        'date_birth',
         'function',
-        'role'
+        'role',
+        'instruments',
+        'confirmed',
     ];
 
-    protected $casts = ['papel' => 'array',];
+    protected $casts = [
+        'instruments' => 'array',
+        'confirmed' => 'boolean',
+        'birth_date' => 'date',
+        'email_verified_at' => 'datetime',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
