@@ -26,19 +26,19 @@
         <div class="row border rounded-5 p-3 bg-white shadow box-area">
             <h1>Formulário</h1>
 
-            <form action="{{ route('user.store') }}" method="POST" class="row g-3">
+            <form method="POST" action="{{ route('register') }}" class="row g-3">
                 @csrf
 
                 <!-- Name -->
                 <div class="col-12">
                     <label for="name" class="form-label">Nome Completo</label>
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
 
                 <!-- Telephone -->
                 <div class="col-md-6">
-                    <label for="inputTelephone" class="form-label">Telefone</label>
-                    <input type="telephone" class="form-control" id="inputTelephone">
+                    <label for="telephone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="telephone" name="telephone">
                 </div>
 
                 <!-- Birth -->
@@ -49,20 +49,25 @@
 
                 <!-- Email -->
                 <div class="col-md-6">
-                    <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
                 </div>
 
                 <!-- Password -->
                 <div class="col-md-6">
-                    <label for="inputPassword" class="form-label">Crie uma Senha</label>
+                    <label for="password" class="form-label">Crie uma Senha</label>
                     <div class="input-group">
-                        <input type="password" id="senha"
-                            class="form-control form-control
-                            lg lg-light fs-6"
-                            placeholder="Digite sua senha">
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="Digite sua senha" required>
                         <span class="input-group-text password-toggle" id="toggleSenha"><i class="bi bi-eye"></i></span>
                     </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="col-md-6">
+                    <label for="password_confirmation" class="form-label">Confirme a Senha</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control"
+                        required>
                 </div>
 
                 <!-- Select Function -->
@@ -71,11 +76,11 @@
                     <select class="form-select" id="function" name="function">
                         <option value="">-- Escolha --</option>
                         <option value="member">Membro</option>
-                        <option value="leader">Lider</option>
+                        <option value="leader">Líder</option>
                     </select>
                 </div>
 
-                <!-- Select Occupation -->
+                <!-- Select Role -->
                 <div class="col-md-6">
                     <label for="role" class="form-label">Qual o seu Papel?</label>
                     <select class="form-select" id="role" name="role">
@@ -86,8 +91,9 @@
                     </select>
                 </div>
 
+                <!-- Instruments -->
                 <div id="instruments-container" class="mb-3" style="display: none;">
-                    <label for="form-label">Selecione os instrumentos</label><br>
+                    <label class="form-label">Selecione os instrumentos</label><br>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="instruments[]" value="guitar"
                             id="guitar">
@@ -116,15 +122,14 @@
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="instruments[]" value="percussion"
                             id="percussion">
-                        <label class="form-check-label" for="percussion">Percução</label>
+                        <label class="form-check-label" for="percussion">Percussão</label>
                     </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Salvar</button>
-
-                <a href="{{ route('login.form') }}">Voltar</a>
-
+                <a href="{{ route('login') }}">Voltar</a>
             </form>
+
         </div>
     </div>
 
