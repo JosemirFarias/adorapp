@@ -66,8 +66,12 @@
                 <!-- Confirm Password -->
                 <div class="col-md-6">
                     <label for="password_confirmation" class="form-label">Confirme a Senha</label>
-                    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control"
-                        required>
+                    <div class="input-group">
+                        <input type="password" id="password_confirmation" name="password_confirmation"
+                            class="form-control" placeholder="Confirme sua senha" required>
+                        <span class="input-group-text password-toggle" id="toggleConfirmSenha"><i
+                                class="bi bi-eye"></i></span>
+                    </div>
                 </div>
 
                 <!-- Select Function -->
@@ -152,17 +156,33 @@
 
     <!-- Script mostrar/ocultar senha -->
     <script>
-        const toggleSenha = document.getElementById('toggleSenha');
-        const senhaInput = document.getElementById('senha');
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleSenha = document.getElementById('toggleSenha');
+            const senhaInput = document.getElementById('password');
 
-        toggleSenha.addEventListener('click', () => {
-            if (senhaInput.type === 'password') {
-                senhaInput.type = 'text';
-                toggleSenha.innerHTML = '<i class="bi bi-eye-slash"></i>';
-            } else {
-                senhaInput.type = 'password';
-                toggleSenha.innerHTML = '<i class="bi bi-eye"></i>';
-            }
+            const toggleConfirmSenha = document.getElementById('toggleConfirmSenha');
+            const confirmSenhaInput = document.getElementById('password_confirmation');
+
+            toggleSenha.addEventListener('click', () => {
+                if (senhaInput.type === 'password') {
+                    senhaInput.type = 'text';
+                    toggleSenha.innerHTML = '<i class="bi bi-eye-slash"></i>';
+                } else {
+                    senhaInput.type = 'password';
+                    toggleSenha.innerHTML = '<i class="bi bi-eye"></i>';
+                }
+            });
+
+            toggleConfirmSenha.addEventListener('click', () => {
+                if (confirmSenhaInput.type === 'password') {
+                    confirmSenhaInput.type = 'text';
+                    toggleConfirmSenha.innerHTML = '<i class="bi bi-eye-slash"></i>';
+                } else {
+                    confirmSenhaInput.type = 'password';
+                    toggleConfirmSenha.innerHTML = '<i class="bi bi-eye"></i>';
+                }
+
+            });
         });
     </script>
 
